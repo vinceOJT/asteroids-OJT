@@ -1,0 +1,148 @@
+<html>
+
+<head></head>
+
+<body class="container-fluid">
+    <div class="row">
+        <div class="col-sm-12 mb-1">
+            <div style="text-align: center;font-size: 30px;">Asteroids</div>
+            <div style="text-align: center;">
+                <button id="game_start" class="btn-custom" onclick="game_start()">Play</button>
+                <button id="game_pause" class="btn-custom" onclick="game_pause()">Pause</button>
+                <button id="game_resume" class="btn-custom" onclick="game_resume()">Resume</button>
+                <!-- <button onclick="create_asteroids()">Asteroid</button> -->
+            </div>
+        </div>
+        <div class="col-sm-2" style="padding: 5px;">
+
+            <div class="card">
+                <div class="card-header">Pilot Information</div>
+                <div class="card-body">
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text" style="width: 60px;">Pilot</div>
+                        </div>
+                        <input id="name" class="form-control form-control-sm" style="text-align: center;" type="text"
+                            placeholder="Name">
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text" style="width: 60px;">Armor</div>
+                        </div>
+                        <input id="armor" class="form-control form-control-sm" style="text-align: center;" type="text"
+                            readonly>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text" style="width: 60px;">Level</div>
+                        </div>
+                        <input id="level" class="form-control form-control-sm"
+                            style="text-align: center;cursor: default;" type="text" readonly>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text" style="width: 60px;">Debri</div>
+                        </div>
+                        <input id="asteroid" class="form-control form-control-sm"
+                            style="text-align: center;cursor: default;" type="text" readonly>
+                    </div>
+
+                    <div class="input-group">
+                        <div class="input-group-prepend">
+                            <div class="input-group-text" style="width: 60px;">Score</div>
+                        </div>
+                        <input id="score" class="form-control form-control-sm"
+                            style="text-align: center;cursor: default;" type="text" readonly>
+                    </div>
+
+                </div>
+            </div>
+
+
+            <div class="card mt-3">
+                <div class="card-header">
+                    Scoreboared
+
+                </div>
+                <table id="scoreboard">
+
+                </table>
+
+
+            </div>
+
+
+            <!-- <div class="card mt-3">
+                <div class="card-header">Top Scorers:</div>
+                <table id="highscore">
+                    ssss
+                </table>
+            </div> -->
+
+        </div>
+        <div id="game_container" class="col-sm-8" style="height: 90vh;padding: 0px;">
+            <canvas id="game"></canvas>
+        </div>
+        <div class="col-sm-2" style="padding: 5px;">
+
+            <div class="card mb-1">
+                <div class="card-header">
+                    Controls
+                </div>
+                <div class="card-body">
+                    <table class="table table-sm table-bordered" style="font-size: 12px;">
+                        <tbody>
+                            <tr>
+                                <td></td>
+                                <td style="text-align: center;">W / Up</td>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;">A / Left</td>
+                                <td></td>
+                                <td style="text-align: center;">D / Right</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;" colspan="3">Spacebar to shoot</td>
+                            </tr>
+                            <tr>
+                                <td style="text-align: center;" colspan="3">Dont get Hit by Asteroid</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="card-header">How To Win</div>
+                <div class="card-body">
+                    <div>
+                        Evade the Asteroids<br>
+                        Shoot the Asteroids<br>
+                        Survive!
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</body>
+
+<link rel="stylesheet" href="dist/font-awesome/css/all.css" type="text/css">
+<link href="dist/bootstrap-5.1.3/css/bootstrap.min.css" rel="stylesheet">
+<script src="dist/bootstrap-5.1.3/js/bootstrap.min.js"></script>
+<script src="dist/bootstrap-5.1.3/popper.js"></script>
+
+<script src="dist/jquery-3.6.0.min.js"></script>
+
+<script src="js/main.js"></script>
+<script src="js/highscores.js"></script>
+
+<link rel="stylesheet" type="text/css" href="css/main.css" />
+
+</html>
