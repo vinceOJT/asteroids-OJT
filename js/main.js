@@ -323,6 +323,9 @@ function create_asteroids() {
     yA.push(rand_number(game_vals.h + 15, game_vals.h / 2));
     yA.push(rand_number(game_vals.h + 15, game_vals.h));
 
+
+
+
     if (asteroid.a >= 0 && asteroid.a < 90) {
         asteroid.x = xA[0];
         asteroid.y = yA[1];
@@ -631,35 +634,34 @@ function update(ts) {
 
         }
 
-        game_ctx.beginPath();
         game_ctx.strokeStyle = game_vals.ass;
         // game_ctx.arc(tmpA.x, tmpA.y, asteroids[ai].r, 0, 2 * Math.PI);
 
 
-        const radius = asteroids[ai].r * 2;
+        const radius = asteroids[ai].r;
         console.log(radius);
         // target points of the asteroid
         //HEART
-        const points = [
-            { x: 0.4 * radius, y: -0.4 * radius },
+        // const points = [
+        //     { x: 0.4 * radius, y: -0.4 * radius },
 
-            { x: 0.8 * radius, y: 0 },
-
-
-            { x: 0.8 * radius, y: 0.2 * radius },
-
-            { x: 0.6 * radius, y: 0.4 * radius },
-
-            { x: 0.4 * radius, y: 0.3 * radius },
-
-            { x: 0.2 * radius, y: 0.4 * radius },
-
-            { x: 0, y: 0.2 * radius },
-
-            { x: 0, y: 0 },
+        //     { x: 0.8 * radius, y: 0 },
 
 
-        ]
+        //     { x: 0.8 * radius, y: 0.2 * radius },
+
+        //     { x: 0.6 * radius, y: 0.4 * radius },
+
+        //     { x: 0.4 * radius, y: 0.3 * radius },
+
+        //     { x: 0.2 * radius, y: 0.4 * radius },
+
+        //     { x: 0, y: 0.2 * radius },
+
+        //     { x: 0, y: 0 },
+
+
+        // ]
 
         // ARROW
         // const points = [
@@ -675,30 +677,43 @@ function update(ts) {
 
 
         //DEBRIS
-        // const points = [
-        //     { x: 0, y: -1 * radius },
+        const points = [
+            { x: 0, y: -1 * radius },
 
-        //     { x: 0.9 * radius, y: -0.2 * radius },
-        //     { x: 0.7 * radius, y: 0.8 * radius },
+            { x: 0.9 * radius, y: -0.2 * radius },
+            { x: 0.7 * radius, y: 0.8 * radius },
 
-        //     { x: 0, y: 0.5 * radius },
+            { x: 0, y: 0.5 * radius },
 
-        //     { x: -0.7 * radius, y: 0.8 * radius },
-        //     { x: -0.9 * radius, y: -0.2 * radius },
-        //     { x: -0.6 * radius, y: -0.9 * radius },
+            { x: -0.7 * radius, y: 0.8 * radius },
+            { x: -0.9 * radius, y: -0.2 * radius },
+            { x: -0.6 * radius, y: -0.9 * radius },
 
 
-        // ]
+        ]
+
+        //       game_ctx.moveTo(points[0].x, points[0].y); 
+        // for (let i = 1; i < points.length; i++) {
+        //     game_ctx.lineTo(points[i].x, points[i].y);
+
         // itterates through each array and draws them base on their given x, y axis
+        game_ctx.save(); // screenshot the state of the current canavas
+        game_ctx.translate(tmpA.x, tmpA.y); // make the asteroids be at the center of the canvas
 
-        game_ctx.moveTo(tmpA.x + points[0].x, tmpA.y + points[0].y);
+
+        game_ctx.rotate(asteroids[ai].a * Math.PI / 360); //rotate the canvas
+
+
+        game_ctx.beginPath();
+
+        game_ctx.moveTo(points[0].x, points[0].y);
         for (let i = 1; i < points.length; i++) {
-            game_ctx.lineTo(tmpA.x + points[i].x, tmpA.y + points[i].y);
+            game_ctx.lineTo(points[i].x, points[i].y);
 
         }
         game_ctx.closePath();
-
         game_ctx.stroke();
+        game_ctx.restore(); //restore after after use
 
         if (tmpA.x <= -100 || tmpA.x >= game_vals.w + 100 || tmpA.y <= -100 || tmpA.y >= game_vals.h + 100) {
             continue;
